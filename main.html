@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+    <link rel="icon" type="image/gif" href="https://github.com/ty875/Portfolio-images/blob/main/icons/rotating-earth-slow.gif">
+</head>
+
+<body class="main">
+    <div class="bg-container"></div>
+    <div class="desktop-icons">
+        <div class="icon" onclick="openResume()">
+            <img src="https://github.com/ty875/Portfolio-images/blob/main/icons/pdf.png" alt="Resume" />
+            <span>My Resume</span>
+        </div>
+        <div class="resume-bar" style="max-width: 300px">
+            <div class="title-bar">
+                <div class="title-bar-text">A window with contents</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body has-space">
+                <p>There's so much room for activities!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume-bar">
+        <div class="title-bar-text">My Resue</div>
+        <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+        </div>
+    </div>
+
+    <audio id="bg-audio">
+        <source src="https://github.com/ty875/Portfolio-images/blob/main/startup.mp3" type="audio/mpeg">
+    </audio>
+    <div class="taskbar">
+        <img class="start" src="assets/images/pfp1.png" alt="User avatar" draggable="false" />
+        <div class="taskbar-icons">
+            <img src="https://github.com/ty875/Portfolio-images/blob/main/icons/directories.png" alt="Files" />
+            <img src="https://github.com/ty875/Portfolio-images/blob/main/icons/social.png" alt="Social" />
+        </div>
+        <div class="system-tray">
+            <span id="tray-time">3:32 PM</span>
+        </div>
+    </div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>

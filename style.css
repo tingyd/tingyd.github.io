@@ -1,0 +1,253 @@
+body.login{
+  overflow: hidden; 
+}
+body.login {
+  background-image: url("https://github.com/ty875/Portfolio-images/blob/main/images/login.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+/* Background container: start fully visible by default */
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://github.com/ty875/Portfolio-images/blob/main/images/window_background.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 1; /* default visible */
+  transition: opacity 2s ease-in-out;
+}
+
+/* Only hide when JS triggers fade */
+.bg-container.fade-in {
+  opacity: 0;
+}
+
+/* Content: visible by default */
+body.main > *:not(.bg-container) {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Only hide content for fade-in */
+body.main.fade-content > *:not(.bg-container) {
+  opacity: 0;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+.user-avatar-container img {
+  width: 128px;
+  height: 128px;
+  pointer-events: none;
+}
+
+.login-page{
+  align-items: center;
+}
+
+.user-avatar-container {
+  margin-bottom: 24px;
+}
+
+input[type="password"].password-box {
+  width: 215px;
+  height: 33px;
+  font-size: 15px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.login-box {
+  display: flex;
+  gap: 12px;
+  padding-left: 3%;
+}
+
+.myname {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 2%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  align-items: center;
+}
+
+img {
+  user-select: none;
+}
+
+.welcome{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  flex-direction: row; /* Changed from column-reverse to row */
+  gap: 15px; /* Added gap for spacing between loader and text */
+}
+
+.welcome.show {
+  display: flex;
+}
+
+.win7-taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(50, 50, 50, 0.9);
+    display: flex;
+    align-items: center; /* vertical alignment */
+    justify-content: flex-start; /* everything starts from the left */
+    padding: 0 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+}
+
+.taskbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px; /* small space between start button and icons */
+}
+
+.taskbar-icons img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.taskbar-icons img:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-right {
+    margin-left: auto; /* pushes clock to the far right */
+    color: white;
+    font-size: 12px;
+}
+body.desktop {
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/images/window_background.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 64px;
+  height: 64px;
+  user-select: none;
+}
+
+
+/* Taskbar */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+background: linear-gradient(
+    to top,
+    rgba(161, 218, 196, 0.3)   /* middle glassy gray-blue */
+  );  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: white;
+  font-size: 14px;
+}
+
+img.start{
+    width: 32px;
+    height: 32px;  
+     border-radius: 50%;
+}
+
+.resume-bar{
+  display: none;
+}
+
+.resume-bar.show{
+  display: block;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
