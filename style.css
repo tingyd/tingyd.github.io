@@ -22,7 +22,7 @@ body.login {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("https://github.com/ty875/Portfolio-images/blob/main/images/window_background.jpg");
+  background-image: url("assets/images/window_background.jpg");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -245,9 +245,4 @@ img.start{
 
 .resume-bar.show{
   display: block;
-}
-
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
 }
