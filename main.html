@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/7.css">
     <link rel="icon" type="image/gif" href="assets/icons/rotating-earth-slow.gif">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0WE4QH99T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E0WE4QH99T');
+    </script>
 </head>
 
-<body class="main">
+<body class="main fade-content">
     <div class="bg-container"></div>
     <div class="desktop-icons">
-        <div class="icon" onclick="openResume()">
+        <div class="icon">
             <img src="assets/icons/pdf.png" alt="Resume" />
             <span>My Resume</span>
         </div>
-        <div class="resume-bar" style="max-width: 300px">
+        <div class="resume-bar">
             <div class="title-bar">
-                <div class="title-bar-text">A window with contents</div>
+                <div class="title-bar-text">My Resume</div>
                 <div class="title-bar-controls">
                     <button aria-label="Minimize"></button>
                     <button aria-label="Maximize"></button>
@@ -27,7 +34,8 @@
                 </div>
             </div>
             <div class="window-body has-space">
-                <p>There's so much room for activities!</p>
+                <iframe src="assets/resume.pdf" width="100%" height="100%" style="border:none;">
+                </iframe>
             </div>
         </div>
     </div>
@@ -53,7 +61,7 @@
         </div>
     </div>
 
-<script type="module" src="script.js"></script>
+    <script type="module" src="script.js"></script>
 
 </body>
 
