@@ -1,6 +1,10 @@
-body.login{
-  overflow: hidden; 
+body.login {
+  overflow: hidden;
 }
+body.main {
+  background-color: black; /* initial black background */
+}
+
 body.login {
   background-image: url("assets/images/login.jpg");
   background-size: cover;
@@ -26,24 +30,22 @@ body.login {
   background-size: cover;
   background-position: center;
   z-index: -1;
-  opacity: 1; /* default visible */
-  transition: opacity 2s ease-in-out;
+  opacity: 1;
+  transition: opacity 3s ease-in-out;
 }
 
-/* Only hide when JS triggers fade */
 .bg-container.fade-in {
   opacity: 0;
 }
 
-/* Content: visible by default */
-body.main > *:not(.bg-container) {
+body.main>*:not(.bg-container) {
   opacity: 1;
   transition: opacity 2s ease-in-out;
 }
 
-/* Only hide content for fade-in */
-body.main.fade-content > *:not(.bg-container) {
+body.main.fade-content > * {
   opacity: 0;
+  transition: opacity 3s ease-in-out; 
 }
 
 
@@ -51,13 +53,11 @@ body.main.fade-content > *:not(.bg-container) {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-.fade-out {
-  animation: fadeOut 1s ease-in-out forwards;
 }
 
 @keyframes fadeOut {
@@ -74,7 +74,7 @@ body.main.fade-content > *:not(.bg-container) {
   pointer-events: none;
 }
 
-.login-page{
+.login-page {
   align-items: center;
 }
 
@@ -112,15 +112,17 @@ img {
   user-select: none;
 }
 
-.welcome{
+.welcome {
   display: none;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 25px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  flex-direction: row; /* Changed from column-reverse to row */
-  gap: 15px; /* Added gap for spacing between loader and text */
+  flex-direction: row;
+  /* Changed from column-reverse to row */
+  gap: 15px;
+  /* Added gap for spacing between loader and text */
 }
 
 .welcome.show {
@@ -128,54 +130,59 @@ img {
 }
 
 .win7-taskbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: rgba(50, 50, 50, 0.9);
-    display: flex;
-    align-items: center; /* vertical alignment */
-    justify-content: flex-start; /* everything starts from the left */
-    padding: 0 10px;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
-    z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(50, 50, 50, 0.9);
+  display: flex;
+  align-items: center;
+  /* vertical alignment */
+  justify-content: flex-start;
+  /* everything starts from the left */
+  padding: 0 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 .start-button {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
 }
 
 .taskbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 10px; /* small space between start button and icons */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  /* small space between start button and icons */
 }
 
 .taskbar-icons img {
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: background 0.2s;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.2s;
 }
 
 .taskbar-icons img:hover {
-    background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .taskbar-right {
-    margin-left: auto; /* pushes clock to the far right */
-    color: white;
-    font-size: 12px;
+  margin-left: auto;
+  /* pushes clock to the far right */
+  color: white;
+  font-size: 12px;
 }
+
 body.desktop {
   margin: 0;
   padding: 0;
@@ -222,10 +229,11 @@ body.desktop {
   left: 0;
   right: 0;
   height: 40px;
-background: linear-gradient(
-    to top,
-    rgba(161, 218, 196, 0.3)   /* middle glassy gray-blue */
-  );  display: flex;
+  background: linear-gradient(to top,
+      rgba(161, 218, 196, 0.3)
+      /* middle glassy gray-blue */
+    );
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
@@ -233,16 +241,61 @@ background: linear-gradient(
   font-size: 14px;
 }
 
-img.start{
-    width: 32px;
-    height: 32px;  
-     border-radius: 50%;
+img.start {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
-.resume-bar{
-  display: none;
+.resume-bar {
+  position: absolute;       /* So top/left works */
+  display: none;            /* Hidden by default */
+  flex-direction: column;   /* Stack children vertically */
+  width: 800px;
+  height: 600px;
+  top: 0px;
+  left: 200px;
+  border: 2px solid #333;
+  z-index: 100;
+  overflow: hidden;
 }
 
-.resume-bar.show{
+.resume-bar.show {
+  display: flex;            /* Show and enable flex layout */
+}
+
+
+/* Window body fills remaining space */
+.resume-bar .window-body {
+  flex: 1;                  /* Take all remaining space */
+  overflow: auto;           /* Scroll if content overflows */
+}
+
+/* Make iframe fill the window body */
+.resume-bar .window-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video modal basic styles (tweak to taste) */
+.window.hidden { display: none; }
+#video-window.window {
+  position: absolute;
+  width: 720px;
+  max-width: calc(100% - 40px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f8f9fb;
+}
+#video-frame {
+  width: 100%;
+  height: auto;
+  background: #000;
   display: block;
 }
