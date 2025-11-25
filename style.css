@@ -1,0 +1,150 @@
+ body {
+     overflow-y: hidden;
+ }
+
+ /* --- THEME VARIABLES --- */
+ .light {
+     --bg-color: #ffffff;
+     --text-color: #111827;
+     /* gray-900 */
+     --text-muted: #6b7280;
+     /* gray-500 */
+     --border-color: #e5e7eb;
+     /* gray-200 */
+     --accent-color: #4285F4;
+     /* FORCED START COLOR: Google Blue */
+     --card-bg: #ffffff;
+     --font-main: 'Inter', sans-serif;
+ }
+
+ .dark {
+     --bg-color: #111827;
+     /* gray-900 */
+     --text-color: #f9fafb;
+     /* gray-50 */
+     --text-muted: #9ca3af;
+     /* gray-400 */
+     --border-color: #374151;
+     /* gray-700 */
+     --accent-color: #4285F4;
+     /* FORCED START COLOR: Google Blue */
+     --card-bg: #1f2937;
+     /* gray-800 */
+     --font-main: 'Inter', sans-serif;
+ }
+
+ /* --- TYPING ANIMATION STYLES --- */
+ #typing-text {
+     /* Shrinks the block width to fit content, allowing proper centering */
+     display: inline-block;
+     /* Keeps text on one line */
+     white-space: nowrap;
+     overflow: hidden;
+     max-width: 100%;
+     /* Cursor simulation: right border, color set by JS on start */
+     border-right: 0.15em solid transparent;
+     /* Transition matches the cycle interval for continuous morphing */
+     transition: color 10s ease-in-out;
+ }
+
+ /* Keyframes for the blinking cursor */
+ @keyframes blink-caret {
+
+     from,
+     to {
+         border-color: transparent
+     }
+
+     50% {
+         border-color: var(--accent-color);
+     }
+ }
+
+
+ /* --- GLOBAL TRANSITIONS & VARS --- */
+ body,
+ #theme-wrapper,
+ .project-card,
+ .exp-item {
+     /* Harmonized transition duration to 0.6s for all theme and card elements */
+     transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+     transition-duration: 0.6s;
+     transition-timing-function: ease-in-out;
+ }
+
+ #theme-wrapper {
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     font-family: var(--font-main);
+ }
+
+ .text-muted {
+     color: var(--text-muted);
+ }
+
+ .border-color {
+     border-color: var(--border-color);
+ }
+
+ /* Ensure all accent text transitions smoothly over 10s */
+ .accent-text {
+     color: var(--accent-color);
+     transition: color 10s ease-in-out;
+ }
+
+ /* Ensure all accent borders transitions smoothly over 10s */
+ .accent-border {
+     border-color: var(--accent-color);
+     transition: border-color 10s ease-in-out;
+ }
+
+ .card-bg {
+     background-color: var(--card-bg);
+ }
+
+ .theme-btn.active {
+     transform: scale(1.1);
+ }
+
+ /* --- Active Theme Icon Fill --- */
+
+ /* Add transition for fill on all theme button paths for smooth color change */
+ .theme-btn svg path {
+     transition: fill 0.5s ease-in-out;
+     fill: none;
+     /* Ensure fill is none by default, overriding any inherited property */
+ }
+
+ /* Highlight the center of the Sun when light mode is active */
+ #light-mode.active svg path {
+     fill: #FFD700;
+ }
+
+ /* Highlight the Moon when dark mode is active */
+ #dark-mode.active svg path {
+     fill: #FFD700;
+ }
+
+ /* --- Social Media Icons Theme Switching --- */
+
+ /* 1. LIGHT MODE  */
+ .light #linkedin-blue,
+ .light #github-black {
+     display: inline-block !important;
+ }
+
+ .light #linkedin-white,
+ .light #github-white {
+     display: none !important;
+ }
+
+ /* 2. DARK MODE */
+ .dark #linkedin-blue,
+ .dark #github-black {
+     display: none !important;
+ }
+
+ .dark #linkedin-white,
+ .dark #github-white {
+     display: inline-block !important;
+ }
