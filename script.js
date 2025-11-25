@@ -1,4 +1,4 @@
-import frames from "./assets/base64/favicon_frames.js";
+import frames from "./asset/base64/favicon_frames.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const themeWrapper = document.getElementById('theme-wrapper');
