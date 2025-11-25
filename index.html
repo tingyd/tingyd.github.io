@@ -149,14 +149,31 @@
                 </div>
             </section>
             <footer class="mt-20 border-t border-color pt-8 text-center">
-                <p class="text-muted">
-                    Get in touch: <a href="mailto:tingyue@001.com"
-                        class="font-medium accent-text hover:underline">tingyue.dong@stonybrook.edu</a>
-                    <a href="#" class="text-muted hover:accent-text">LinkedIn</a>
-                    <a href="#" class="text-muted hover:accent-text">GitHub</a>
-                </p>
+                <p class="text-muted flex items-center justify-center">
+                    Get in touch:
+                    <a href="mailto:tingyue.dong@stonybrook.edu"
+                        class="font-medium accent-text hover:underline mx-2">tingyue.dong@stonybrook.edu</a>
 
+                    <a href="#" aria-label="LinkedIn" class="inline-block mx-1 flex-shrink-0 mt-1">
+                        <span id="linkedin-icons" class="inline-flex">
+                            <!-- Blue for Light Mode (Default) -->
+                            <img id="linkedin-blue" src="asset/linkedin-blue.png" class="w-[30px] h-[26px] align-middle" alt="LinkedIn Logo (Blue)" />
+                            <!-- White for Dark Mode (Hidden by default) -->
+                            <img id="linkedin-white" src="asset/linkedin-white.png" class="w-[30px] h-[26px] align-middle hidden" alt="LinkedIn Logo (White)" />
+                        </span>
+                    </a>
+                    
+                    <a href="#" aria-label="GitHub" class="inline-block mx-1 flex-shrink-0">
+                        <span id="github-icons" class="inline-flex">
+                            <img id="github-black" src="asset/github-dark.png" class="w-[26px] h-[26px] align-middle"
+                                alt="GitHub Logo (Black)" />
+                            <img id="github-white" src="asset/github-white.png"
+                                class="w-[26px] h-[26px] hidden align-middle" alt="GitHub Logo (White)" />
+                        </span>
+                    </a>
+                </p>
             </footer>
+
 
         </main>
     </div>
