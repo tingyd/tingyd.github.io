@@ -11,12 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const subTextContent = "Hi! My name is Ting, and I'm passionate about building meaningful, impactful software. Welcome to my portfolio!";
 
     const subtextFadeDurationMs = 1200;
-
-    // Apply a transition style to the subtext element for fading
     if (heroSubtext) {
-        heroSubtext.style.transition = `opacity ${subtextFadeDurationMs / 1000}s ease-in-out`;
+        heroSubtext.textContent = '';
+        heroSubtext.classList.remove('visible'); // keep it hidden at start
+        heroSubtext.setAttribute('aria-hidden', 'true');
     }
-
 
     if (!textElement) {
         console.error('Missing #typing-text — typing animation cannot run.');
@@ -95,19 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 textElement.style.borderRightColor = 'transparent';
                 textElement.style.transition = `color ${transitionDuration} ease-in-out`;
 
-                // NEW: Immediately start the subtext fade-in
                 if (heroSubtext) {
-                    heroSubtext.style.opacity = 1;
+                    heroSubtext.textContent = subTextContent;
+                    heroSubtext.setAttribute('aria-hidden', 'false');
+                    heroSubtext.style.opacity = '';
+                    heroSubtext.style.visibility = '';
+                    heroSubtext.classList.add('visible');
                 }
 
                 // Wait for the fade-in duration before enabling scroll and starting color cycle
                 setTimeout(() => {
-                    // Enable scrolling once the subtext is fully visible
                     document.body.style.overflowY = 'scroll';
-
-                    // Start the continuous color cycle
                     startColorCycling();
-                }, subtextFadeDurationMs); // Using the harmonized 1500ms duration
+                }, subtextFadeDurationMs);
             }
         }
 
@@ -120,24 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightBtn) lightBtn.addEventListener('click', () => setTheme('light'));
     if (darkBtn) darkBtn.addEventListener('click', () => setTheme('dark'));
 
-    // Check if user has visited before using localStorage
+    // Set initial theme
     setTheme('light');
     const hasVisited = localStorage.getItem('hasVisited');
 
     if (!hasVisited) {
-        // First visit - start the full typing animation
         localStorage.setItem('hasVisited', 'true');
-        // Initial body overflow is hidden via the style tag in index.html
         startTypingAnimation();
     } else {
-        // Not first visit - set text immediately and enable scrolling
         textElement.textContent = "Hello World";
         if (heroSubtext) {
+            heroSubtext.style.transition = 'none';  
+            heroSubtext.style.visibility = 'visible'; 
             heroSubtext.textContent = subTextContent;
             heroSubtext.style.opacity = 1;
         }
-        textElement.style.transition = `color ${transitionDuration} ease-in-out`;
-        document.body.style.overflowY = 'scroll'; // Enable scrolling immediately
+        document.body.style.overflowY = 'scroll'; 
         startColorCycling();
     }
 

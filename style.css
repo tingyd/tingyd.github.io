@@ -112,7 +112,6 @@
  .theme-btn svg path {
      transition: fill 0.5s ease-in-out;
      fill: none;
-     /* Ensure fill is none by default, overriding any inherited property */
  }
 
  /* Highlight the center of the Sun when light mode is active */
@@ -148,3 +147,15 @@
  .dark #github-white {
      display: inline-block !important;
  }
+
+ #hero-subtext {
+  opacity: 0;
+  visibility: hidden; 
+  transition: opacity 1.2s ease-in-out, visibility 0s linear 1.2s;
+    
+}
+#hero-subtext.visible {
+  visibility: visible;
+  transition-delay: 0s; 
+  opacity: 1;
+}
